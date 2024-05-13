@@ -3,24 +3,18 @@ tentar descobrir qual foi o valor sorteado. */
 
 function jogoAdivinha(jogadaUsuario){
     let jogadaComputador = Math.floor(Math.random() * 4) + 1;
-    if(jogadaComputador === 1){
-        jogadaComputador = "PEDRA";
-    }else if(jogadaComputador === 2){
-        jogadaComputador = "PAPEL";
-    }else{
-        jogadaComputador = "TESOURA";
-    }
 
-    if(jogadaUsuario === jogadaComputador){
-        return `${jogadaUsuario} x ${jogadaComputador} = EMPATE!`;
+    if(jogadaUsuario != jogadaComputador){
+        return `O número sorteado é: ${jogadaComputador}. Errou!`;
     }
     else{
-        if(jogadaUsuario === "PEDRA" && jogadaComputador === "TESOURA" || jogadaUsuario === "PAPEL" && jogadaComputador === "PEDRA" || jogadaUsuario === "TESOURA" && jogadaComputador === "PAPEL"){
-            return `${jogadaUsuario} x ${jogadaComputador} = VOCÊ GANHOU!`;
-        }
-        else{
-            return `${jogadaUsuario} x ${jogadaComputador} = VOCÊ PERDEU!`;
-        }
+        return `O número sorteado é: ${jogadaComputador}. Acertou!`;
     }
 
 }
+
+const prompt = require('prompt-sync')();
+let jogadaUsuario;
+
+jogadaUsuario = prompt("Digite um número entre 1 e 5: ");
+console.log(jogoAdivinha(jogadaUsuario));
